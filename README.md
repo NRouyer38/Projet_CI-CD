@@ -1,35 +1,12 @@
-== Projet de gestion de menu pour la cantina de Mos-Estafette - Reprise
+# Projet CICD
 
-=== Lancer le projet
+## Installation
+Get main branch
+jar --create --manifest=MANIFEST.mf --file menuController.jar src/main/java/controller/menuController.java
 
-```bash
-./executer.sh
-```
+On est en retard dans le projet on arrive pas à trouver ou est le picocli.jar pour le java -cp.. avec gitpod.
 
-== Dépendances du Projet
+## add menu
+dans l'application menu server :
 
-- Spring boot et tous les machins qui vont avec
-  - spring-boot-starter-data-jpa
-  - spring-boot-starter-web
-  - spring-boot-starter-test (mais ça on s'en sert pas on en à pas besoin)
-- Lombok
-- H2 Database (parce qu'on a pas besoin d'un serveur de base de données)
-- maven-failsafe-plugin
-
-== Plugins maven
-
-- spring-boot-starter-test
-- maven-failsafe-plugin
-
-== Plan de test pour vérifier que "ça marche sur mon poste"
-
-```bash
-# Créer un nouveau menu avec un plat dedans
-curl -H "Content-Type: application/json" --data-raw '{"name": "Menu spécial du chef", "dishes": [{"name": "Bananes aux fraises"},{"name": "Bananes flambées"}]}' localhost:8080/menus
-
-# Lire les menus enregistrés
-curl localhost:8080/menus
-
-# Supprimer un menus crée
-curl -XDELETE localhost:8080/menus/1
-```
+curl -H "Content-Type: application/json" --data-raw '{"name": "Menu spécial du chef", "dishes": [{"name": "Bananes aux fraises"},{"name": "Bananes flambées"}]}"
